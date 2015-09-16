@@ -24,6 +24,7 @@ add_dependencies(lua_bloom_filter luasandbox)
 add_dependencies(lua_circular_buffer luasandbox)
 add_dependencies(lua_hyperloglog luasandbox)
 add_dependencies(lua_cuckoo_filter luasandbox)
+add_dependencies(lua_sax luasandbox)
 
 if(MSVC)
     add_definitions(-D_CRT_SECURE_NO_WARNINGS)

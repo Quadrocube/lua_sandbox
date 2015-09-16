@@ -143,3 +143,11 @@ externalproject_add(
     CMAKE_ARGS ${SANDBOX_CMAKE_ARGS}
     INSTALL_ARGS ${INST_ARGS}
 )
+
+externalproject_add(
+    lua_sax
+    GIT_REPOSITORY https://github.com/Quadrocube/symtseries.git
+    GIT_TAG 86c33b923fdde547409e91db79ee649027f7ef46
+    CMAKE_ARGS ${SANDBOX_CMAKE_ARGS}
+    INSTALL_ARGS ${INST_ARGS}
+)
