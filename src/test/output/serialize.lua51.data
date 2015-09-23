@@ -15,6 +15,9 @@ _G["kvp"]["r"][4] = 92.002
 _G["kvp"]["r"][5] = 91.10001
 _G["kvp"]["r"]["key"] = "val"
 _G["kvp"]["b"] = "bar"
+if _G["delta"] == nil then _G["delta"] = circular_buffer.new(2, 1, 1, true) end
+_G["delta"]:set_header(1, "Column_1", "count", "sum")
+_G["delta"]:fromstring("1 1 2 nan 0 2")
 _G["uuids"] = {}
 _G["uuids"][1] = {}
 _G["uuids"][1]["type"] = "test"
@@ -28,9 +31,6 @@ _G["cycleb"]["a"]["b"] = _G["cycleb"]
 _G["cycleb"]["a"]["type"] = "cycle a"
 _G["cycleb"]["type"] = "cycle b"
 _G["rates"] = _G["kvp"]["r"]
-if _G["delta"] == nil then _G["delta"] = circular_buffer.new(2, 1, 1, true) end
-_G["delta"]:set_header(1, "Column_1", "count", "sum")
-_G["delta"]:fromstring("1 1 2 nan 0 2")
 _G["data"] = _G["dataRef"]
 _G["cyclea"] = _G["cycleb"]["a"]
 _G["large_key"] = {}
@@ -54,12 +54,22 @@ _G["large_key"]["aaaaaaaaaaaaaaaaaaa"]["bbbbbbbbbbbbbbbbbbb"]["BD48B609-8922-4E5
 _G["large_key"]["aaaaaaaaaaaaaaaaaaa"]["BD48B609-8922-4E59-A358-C242075CE081"] = 1
 _G["boolean"] = true
 _G["key with spaces"] = "kws"
+_G["svals"] = {}
+_G["svals"][1] = 10.3
+_G["svals"][2] = 7
+_G["svals"][3] = 1
+_G["svals"][4] = -5
 _G["nested"] = {}
 _G["nested"]["arg2"] = 2
+_G["nested"]["sword2"] = sax.word.new("FC", 8)
 _G["nested"]["nested"] = {}
 _G["nested"]["nested"]["n2"] = "two"
 _G["nested"]["nested"]["n1"] = "one"
 _G["nested"]["arg1"] = 1
+_G["nested"]["sword"] = sax.word.new("FC", 8)
+if _G["nested"]["swin"] == nil then _G["nested"]["swin"] = sax.window.new(6, 2, 8) end
+_G["nested"]["swin"]:clear()
+_G["nested"]["swin"]:add({10.300000,7.000000,1.000000,-5.000000})
 if _G["nested"]["cb"] == nil then _G["nested"]["cb"] = circular_buffer.new(2, 6, 1) end
 _G["nested"]["cb"]:set_header(1, "Column_1", "count", "sum")
 _G["nested"]["cb"]:set_header(2, "Column_2", "count", "sum")

@@ -3,13 +3,16 @@
 -- file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
 require "circular_buffer"
+require "sax"
 util = require "util"
 
 count = 0
 rate = 0.12345678
 rates = {99.1,98,97,92.002,91.10001,key="val"}
 kvp = {a="foo", b="bar", r=rates}
-nested = {arg1=1, arg2=2, nested={n1="one",n2="two"}, empty = nil, cb = circular_buffer.new(2,6,1)}
+nested = {arg1=1, arg2=2, nested={n1="one",n2="two"}, empty = nil, cb = circular_buffer.new(2,6,1), sword = sax.word.new("FC", 8), sword2 = sax.word.new({10.3, 7, 1, -5, -5, 7.2}, 2, 8), swin = sax.window.new(6, 2, 8)}
+svals = {10.3, 7, 1, -5}
+for i=1,4 do nested["swin"]:add(svals[i]) end
 _G["key with spaces"] = "kws"
 boolean = true
 empty = nil
