@@ -61,15 +61,15 @@ _G["svals"][3] = 1
 _G["svals"][4] = -5
 _G["nested"] = {}
 _G["nested"]["arg2"] = 2
-_G["nested"]["sword2"] = sax.word.new("FC", 8)
+if _G["nested"]["sword2"] == nil then _G["nested"]["sword2"] = sax.word.new("FC", 8) end
 _G["nested"]["nested"] = {}
 _G["nested"]["nested"]["n2"] = "two"
 _G["nested"]["nested"]["n1"] = "one"
 _G["nested"]["arg1"] = 1
-_G["nested"]["sword"] = sax.word.new("FC", 8)
+if _G["nested"]["sword"] == nil then _G["nested"]["sword"] = sax.word.new("FC", 8) end
 if _G["nested"]["swin"] == nil then _G["nested"]["swin"] = sax.window.new(6, 2, 8) end
 _G["nested"]["swin"]:clear()
-_G["nested"]["swin"]:add({10.300000,7.000000,1.000000,-5.000000})
+_G["nested"]["swin"]:add({10.3,7,1,-5})
 if _G["nested"]["cb"] == nil then _G["nested"]["cb"] = circular_buffer.new(2, 6, 1) end
 _G["nested"]["cb"]:set_header(1, "Column_1", "count", "sum")
 _G["nested"]["cb"]:set_header(2, "Column_2", "count", "sum")
